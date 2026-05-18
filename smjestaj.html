@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <title>CroFly - Smještaj i Turističke informacije</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <!-- HERO HEADER KONTEJNER -->
+    <header class="hero-header">
+        <nav class="container">
+            <div class="nav-box">
+                <a href="index.html" class="c-btn">Početna</a>
+
+                <!-- Letovi Dropdown -->
+                <div class="dropdown">
+                    <button class="c-btn">Letovi</button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="letovi.html#zagreb">Zagreb</a></li>
+                            <li><a href="letovi.html#split">Split</a></li>
+                            <li><a href="letovi.html#dubrovnik">Dubrovnik</a></li>
+                            <li><a href="letovi.html#zadar">Zadar</a></li>
+                            <li><a href="letovi.html#pula">Pula</a></li>
+                            <li><a href="letovi.html#rijeka">Rijeka</a></li>
+                            <li><a href="letovi.html#osijek">Osijek</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Smještaj Dropdown (Sidrišta na stranici) -->
+                <div class="dropdown">
+                    <button class="c-btn">Smještaj</button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#zagreb">Zagreb</a></li>
+                            <li><a href="#split">Split</a></li>
+                            <li><a href="#dubrovnik">Dubrovnik</a></li>
+                            <li><a href="#zadar">Zadar</a></li>
+                            <li><a href="#pula">Pula</a></li>
+                            <li><a href="#rijeka">Rijeka</a></li>
+                            <li><a href="#osijek">Osijek</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Prognoza Dropdown -->
+                <div class="dropdown">
+                    <button class="c-btn">Prognoza</button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="prognoza.html#zagreb">Zagreb</a></li>
+                            <li><a href="prognoza.html#split">Split</a></li>
+                            <li><a href="prognoza.html#dubrovnik">Dubrovnik</a></li>
+                            <li><a href="prognoza.html#zadar">Zadar</a></li>
+                            <li><a href="prognoza.html#pula">Pula</a></li>
+                            <li><a href="prognoza.html#rijeka">Rijeka</a></li>
+                            <li><a href="prognoza.html#osijek">Osijek</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Autobus Dropdown -->
+                <div class="dropdown">
+                    <button class="c-btn">Autobus </button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="autobus.html#zagreb">Zagreb</a></li>
+                            <li><a href="autobus.html#split">Split</a></li>
+                            <li><a href="autobus.html#dubrovnik">Dubrovnik</a></li>
+                            <li><a href="autobus.html#zadar">Zadar</a></li>
+                            <li><a href="autobus.html#pula">Pula</a></li>
+                            <li><a href="autobus.html#rijeka">Rijeka</a></li>
+                            <li><a href="autobus.html#osijek">Osijek</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a href="karta.html" class="c-btn">Karta </a>
+                <button id="theme-toggle" class="c-btn">🌙</button>
+            </div>
+        </nav>
+        <div class="hero-text">
+            <h1>Pronađite savršen smještaj</h1>
+        </div>
+    </header>
+
+    <main class="main container">
+        
+        <!-- ACTION BOX: Booking.com Integracija -->
+        <div class="lp-container">
+            <div id="booking-search" class="u-card p-30 t-center" style="background: var(--light-blue);">
+                <h2>Traži smještaj na Booking.com</h2>
+                <p>Brza pretraga hotela i apartmana u realnom vremenu preko službenog sučelja.</p>
+                <!-- Ovdje se umeće Booking.com Search Box API -->
+                <div id="booking-api-content" style="background: white; padding: 20px; border-radius: 12px; margin-top: 15px; border: 2px dashed var(--secondary-blue);">
+                    <p><em>[Booking.com Search Widget učitava se ovdje...]</em></p>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <h2 class="t-center m-top-40" style="color: var(--primary-blue);">Istražite destinacije</h2>
+            <p class="t-center">Saznajte više o smještaju i turističkim ponudama u svakom gradu.</p>
+
+            <!-- ZAGREB (Slika lijevo - Tekst desno) -->
+            <div id="zagreb" class="lp-container">
+                <div class="feature-row">
+                    <div class="feature-image-box">
+                        <img src="slike/zagrebprognoza.jpg" alt="Zagreb" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Zagreb</h2>
+                        <p>Istražite hotele u samom srcu metropole ili šarmantne apartmane u Gornjem Gradu. Zagreb nudi bogatu kulturnu ponudu i vrhunski kontinentalni smještaj.</p>
+                        <div class="nav-box" style="justify-content: flex-start; margin-top: 20px;">
+                            <a href="karta.html?grad=zagreb" class="c-btn"> Vidi na karti</a>
+                            <a href="https://www.tzgz.hr/" target="_blank" class="c-btn">🌐 Turistička info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SPLIT (Tekst lijevo - Slika desno REVERSE) -->
+            <div id="split" class="lp-container">
+                <div class="feature-row reverse">
+                    <div class="feature-image-box">
+                        <img src="slike/splitprognoza.jpg" alt="Split" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Split</h2>
+                        <p>Od luksuznih soba unutar Dioklecijanove palače do modernih resorta uz more. Split je idealna baza za istraživanje srednje Dalmacije.</p>
+                        <div class="nav-box" style="justify-content: flex-start; margin-top: 20px;">
+                            <a href="karta.html?grad=split" class="c-btn"> Vidi na karti</a>
+                            <a href="https://visitsplit.com/" target="_blank" class="c-btn">🌐 Turistička info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DUBROVNIK (Slika lijevo - Tekst desno) -->
+            <div id="dubrovnik" class="lp-container">
+                <div class="feature-row">
+                    <div class="feature-image-box">
+                        <img src="slike/dubrovnikprognoza.jpg" alt="Dubrovnik" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Dubrovnik</h2>
+                        <p>Doživite elitni turizam u "Biseru Jadrana". Dubrovnik nudi najprestižnije hotele s pet zvjezdica i autohtoni smještaj unutar zidina.</p>
+                        <div class="nav-box" style="justify-content: flex-start; margin-top: 20px;">
+                            <a href="karta.html?grad=dubrovnik" class="c-btn"> Vidi na karti</a>
+                            <a href="https://tzdubrovnik.hr/" target="_blank" class="c-btn">🌐 Turistička info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ZADAR (Tekst lijevo - Slika desno REVERSE) -->
+            <div id="zadar" class="lp-container">
+                <div class="feature-row reverse">
+                    <div class="feature-image-box">
+                        <img src="slike/zadarprognoza.jpg" alt="Zadar" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Zadar</h2>
+                        <p>Moderni kampovi, boutique hoteli i privatni apartmani s pogledom na najljepši zalazak sunca na svijetu.</p>
+                        <div class="nav-box" style="justify-content: flex-start; margin-top: 20px;">
+                            <a href="karta.html?grad=zadar" class="c-btn"> Vidi na karti</a>
+                            <a href="https://zadar.travel/hr/" target="_blank" class="c-btn">🌐 Turistička info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PULA (Slika lijevo - Tekst desno) -->
+            <div id="pula" class="lp-container">
+                <div class="feature-row">
+                    <div class="feature-image-box">
+                        <img src="slike/pulaprognoza.jpg" alt="Pula" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Pula</h2>
+                        <p>Boravite u turističkim resortima Verudele ili apartmanima u blizini Arene. Pula nudi savršen spoj povijesti i odmora na moru.</p>
+                        <div class="nav-box" style="justify-content: flex-start; margin-top: 20px;">
+                            <a href="karta.html?grad=pula" class="c-btn"> Vidi na karti</a>
+                            <a href="https://pulainfo.hr/hr/" target="_blank" class="c-btn">🌐 Turistička info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIJEKA (Tekst lijevo - Slika desno REVERSE) -->
+            <div id="rijeka" class="lp-container">
+                <div class="feature-row reverse">
+                    <div class="feature-image-box">
+                        <img src="slike/rijekaprognoza.jpg" alt="Rijeka" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Rijeka</h2>
+                        <p>Od hostela na brodovima do komfornih hotela na Kvarneru. Rijeka je izvrsna točka za urbana istraživanja i izlete na otoke.</p>
+                        <div class="nav-box" style="justify-content: flex-start; margin-top: 20px;">
+                            <a href="karta.html?grad=rijeka" class="c-btn"> Vidi na karti</a>
+                            <a href="https://visitrijeka.hr/" target="_blank" class="c-btn">🌐 Turistička info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OSIJEK (Slika lijevo - Tekst desno) -->
+            <div id="osijek" class="lp-container">
+                <div class="feature-row">
+                    <div class="feature-image-box">
+                        <img src="slike/osijekprognoza.jpg" alt="Osijek" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Osijek</h2>
+                        <p>Doživite slavonsko gostoprimstvo u hotelima uz Dravu ili u obiteljskim pansionima unutar Tvrđe.</p>
+                        <div class="nav-box" style="justify-content: flex-start; margin-top: 20px;">
+                            <a href="karta.html?grad=osijek" class="c-btn">Vidi na karti</a>
+                            <a href="https://www.tzosijek.hr/" target="_blank" class="c-btn">🌐 Turistička info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- FOOTER KONTEJNER (Tamno plavi, odvojen) -->
+    <footer class="footer-main-container">
+        <div class="container t-center">
+            <div class="footer-links-grid">
+                <a href="index.html" class="footer-link-btn">Početna</a>
+                <a href="letovi.html" class="footer-link-btn">Letovi</a>
+                <a href="smjestaj.html" class="footer-link-btn">Smještaj</a>
+                <a href="prognoza.html" class="footer-link-btn">Prognoza</a>
+                <a href="autobus.html" class="footer-link-btn">Autobus</a>
+                <a href="karta.html" class="footer-link-btn">Karta</a>
+            </div>
+            <p class="m-top-40" style="color: white; opacity: 0.8;">&copy; 2026 CroFly - Vaš prozor u Hrvatsku</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

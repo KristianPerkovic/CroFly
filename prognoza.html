@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <title>CroFly - Vremenska prognoza</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <!-- HERO HEADER KONTEJNER -->
+    <header class="hero-header">
+        <nav class="container">
+            <div class="nav-box">
+                <a href="index.html" class="c-btn">Početna</a>
+
+                <!-- Letovi Dropdown -->
+                <div class="dropdown">
+                    <button class="c-btn">Letovi </button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="letovi.html#zagreb">Zagreb</a></li>
+                            <li><a href="letovi.html#split">Split</a></li>
+                            <li><a href="letovi.html#dubrovnik">Dubrovnik</a></li>
+                            <li><a href="letovi.html#zadar">Zadar</a></li>
+                            <li><a href="letovi.html#pula">Pula</a></li>
+                            <li><a href="letovi.html#rijeka">Rijeka</a></li>
+                            <li><a href="letovi.html#osijek">Osijek</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Smještaj Dropdown -->
+                <div class="dropdown">
+                    <button class="c-btn">Smještaj </button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="smjestaj.html#zagreb">Zagreb</a></li>
+                            <li><a href="smjestaj.html#split">Split</a></li>
+                            <li><a href="smjestaj.html#dubrovnik">Dubrovnik</a></li>
+                            <li><a href="smjestaj.html#zadar">Zadar</a></li>
+                            <li><a href="smjestaj.html#pula">Pula</a></li>
+                            <li><a href="smjestaj.html#rijeka">Rijeka</a></li>
+                            <li><a href="smjestaj.html#osijek">Osijek</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Prognoza Dropdown -->
+                <div class="dropdown">
+                    <button class="c-btn">Prognoza</button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#zagreb">Zagreb</a></li>
+                            <li><a href="#split">Split</a></li>
+                            <li><a href="#dubrovnik">Dubrovnik</a></li>
+                            <li><a href="#zadar">Zadar</a></li>
+                            <li><a href="#pula">Pula</a></li>
+                            <li><a href="#rijeka">Rijeka</a></li>
+                            <li><a href="#osijek">Osijek</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Autobus Dropdown -->
+                <div class="dropdown">
+                    <button class="c-btn">Autobus</button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="autobus.html#zagreb">Zagreb</a></li>
+                            <li><a href="autobus.html#split">Split</a></li>
+                            <li><a href="autobus.html#dubrovnik">Dubrovnik</a></li>
+                            <li><a href="autobus.html#zadar">Zadar</a></li>
+                            <li><a href="autobus.html#pula">Pula</a></li>
+                            <li><a href="autobus.html#rijeka">Rijeka</a></li>
+                            <li><a href="autobus.html#osijek">Osijek</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a href="karta.html" class="c-btn">Karta</a>
+                <button id="theme-toggle" class="c-btn">🌙</button>
+            </div>
+        </nav>
+        <div class="hero-text">
+            <h1>Vremenska prognoza</h1>
+        </div>
+    </header>
+
+    <main class="main container">
+        <section class="section">
+            <p class="t-center">Saznajte trenutne vremenske uvjete i prognozu za ključne hrvatske destinacije prije vašeg putovanja.</p>
+
+            <!-- ZAGREB -->
+            <div id="zagreb" class="lp-container">
+                <div class="feature-row">
+                    <div class="feature-image-box">
+                        <img src="slike/zagrebprognoza.jpg" alt="Zagreb" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Zagreb</h2>
+                        <table class="weather-table">
+                            <tr><td>Temp:</td><td id="zagreb-temp">--°C</td></tr>
+                            <tr><td>Vjetar:</td><td id="zagreb-wind">-- km/h</td></tr>
+                            <tr><td>Stanje:</td><td id="zagreb-cond">Učitavanje...</td></tr>
+                        </table>
+                        <button class="c-btn m-top-40" onclick="dohvatiPrognozu('Zagreb')">Osvježi</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SPLIT (REVERSE) -->
+            <div id="split" class="lp-container">
+                <div class="feature-row reverse">
+                    <div class="feature-image-box">
+                        <img src="slike/splitprognoza.jpg" alt="Split" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Split</h2>
+                        <table class="weather-table">
+                            <tr><td>Temp:</td><td id="split-temp">--°C</td></tr>
+                            <tr><td>Vjetar:</td><td id="split-wind">-- km/h</td></tr>
+                            <tr><td>Stanje:</td><td id="split-cond">Učitavanje...</td></tr>
+                        </table>
+                        <button class="c-btn m-top-40" onclick="dohvatiPrognozu('Split')">Osvježi</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DUBROVNIK -->
+            <div id="dubrovnik" class="lp-container">
+                <div class="feature-row">
+                    <div class="feature-image-box">
+                        <img src="slike/dubrovnikprognoza.jpg" alt="Dubrovnik" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Dubrovnik</h2>
+                        <table class="weather-table">
+                            <tr><td>Temp:</td><td id="dubrovnik-temp">--°C</td></tr>
+                            <tr><td>Vjetar:</td><td id="dubrovnik-wind">-- km/h</td></tr>
+                            <tr><td>Stanje:</td><td id="dubrovnik-cond">Učitavanje...</td></tr>
+                        </table>
+                        <button class="c-btn m-top-40" onclick="dohvatiPrognozu('Dubrovnik')">Osvježi</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ZADAR (REVERSE) -->
+            <div id="zadar" class="lp-container">
+                <div class="feature-row reverse">
+                    <div class="feature-image-box">
+                        <img src="slike/zadarprognoza.jpg" alt="Zadar" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Zadar</h2>
+                        <table class="weather-table">
+                            <tr><td>Temp:</td><td id="zadar-temp">--°C</td></tr>
+                            <tr><td>Vjetar:</td><td id="zadar-wind">-- km/h</td></tr>
+                            <tr><td>Stanje:</td><td id="zadar-cond">Učitavanje...</td></tr>
+                        </table>
+                        <button class="c-btn m-top-40" onclick="dohvatiPrognozu('Zadar')">Osvježi</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PULA -->
+            <div id="pula" class="lp-container">
+                <div class="feature-row">
+                    <div class="feature-image-box">
+                        <img src="slike/pulaprognoza.jpg" alt="Pula" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Pula</h2>
+                        <table class="weather-table">
+                            <tr><td>Temp:</td><td id="pula-temp">--°C</td></tr>
+                            <tr><td>Vjetar:</td><td id="pula-wind">-- km/h</td></tr>
+                            <tr><td>Stanje:</td><td id="pula-cond">Učitavanje...</td></tr>
+                        </table>
+                        <button class="c-btn m-top-40" onclick="dohvatiPrognozu('Pula')">Osvježi</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIJEKA (REVERSE) -->
+            <div id="rijeka" class="lp-container">
+                <div class="feature-row reverse">
+                    <div class="feature-image-box">
+                        <img src="slike/rijekaprognoza.jpg" alt="Rijeka" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Rijeka</h2>
+                        <table class="weather-table">
+                            <tr><td>Temp:</td><td id="rijeka-temp">--°C</td></tr>
+                            <tr><td>Vjetar:</td><td id="rijeka-wind">-- km/h</td></tr>
+                            <tr><td>Stanje:</td><td id="rijeka-cond">Učitavanje...</td></tr>
+                        </table>
+                        <button class="c-btn m-top-40" onclick="dohvatiPrognozu('Rijeka')">Osvježi</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OSIJEK -->
+            <div id="osijek" class="lp-container">
+                <div class="feature-row">
+                    <div class="feature-image-box">
+                        <img src="slike/osijekprognoza.jpg" alt="Osijek" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Osijek</h2>
+                        <table class="weather-table">
+                            <tr><td>Temp:</td><td id="osijek-temp">--°C</td></tr>
+                            <tr><td>Vjetar:</td><td id="osijek-wind">-- km/h</td></tr>
+                            <tr><td>Stanje:</td><td id="osijek-cond">Učitavanje...</td></tr>
+                        </table>
+                        <button class="c-btn m-top-40" onclick="dohvatiPrognozu('Osijek')">Osvježi</button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="footer-main-container">
+        <div class="container t-center">
+            <div class="footer-links-grid">
+                <a href="index.html" class="footer-link-btn">Početna</a>
+                <a href="letovi.html" class="footer-link-btn">Letovi</a>
+                <a href="smjestaj.html" class="footer-link-btn">Smještaj</a>
+                <a href="prognoza.html" class="footer-link-btn">Prognoza</a>
+                <a href="autobus.html" class="footer-link-btn">Autobus</a>
+                <a href="karta.html" class="footer-link-btn">Karta</a>
+            </div>
+            <p class="m-top-40" style="color: white; opacity: 0.8;">&copy; 2026 CroFly - Vaš meteorološki partner na putovanju.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <title>CroFly - Interaktivna karta smještaja</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <!-- HERO HEADER -->
+    <header class="hero-header">
+        <nav class="container">
+            <div class="nav-box">
+                <a href="index.html" class="c-btn">Početna</a>
+
+                <div class="dropdown">
+                    <button class="c-btn">Letovi</button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="letovi.html#zagreb">Zagreb</a></li>
+                            <li><a href="letovi.html#split">Split</a></li>
+                            <li><a href="letovi.html#dubrovnik">Dubrovnik</a></li>
+                            <li><a href="letovi.html#zadar">Zadar</a></li>
+                            <li><a href="letovi.html#pula">Pula</a></li>
+                            <li><a href="letovi.html#rijeka">Rijeka</a></li>
+                            <li><a href="letovi.html#osijek">Osijek</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="c-btn">Smještaj </button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="smjestaj.html#zagreb">Zagreb</a></li>
+                            <li><a href="smjestaj.html#split">Split</a></li>
+                            <li><a href="smjestaj.html#dubrovnik">Dubrovnik</a></li>
+                            <li><a href="smjestaj.html#zadar">Zadar</a></li>
+                            <li><a href="smjestaj.html#pula">Pula</a></li>
+                            <li><a href="smjestaj.html#rijeka">Rijeka</a></li>
+                            <li><a href="smjestaj.html#osijek">Osijek</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="c-btn">Prognoza </button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="prognoza.html#zagreb">Zagreb</a></li>
+                            <li><a href="prognoza.html#split">Split</a></li>
+                            <li><a href="prognoza.html#dubrovnik">Dubrovnik</a></li>
+                            <li><a href="prognoza.html#zadar">Zadar</a></li>
+                            <li><a href="prognoza.html#pula">Pula</a></li>
+                            <li><a href="prognoza.html#rijeka">Rijeka</a></li>
+                            <li><a href="prognoza.html#osijek">Osijek</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="c-btn">Autobus </button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="autobus.html#zagreb">Zagreb</a></li>
+                            <li><a href="autobus.html#split">Split</a></li>
+                            <li><a href="autobus.html#dubrovnik">Dubrovnik</a></li>
+                            <li><a href="autobus.html#zadar">Zadar</a></li>
+                            <li><a href="autobus.html#pula">Pula</a></li>
+                            <li><a href="autobus.html#rijeka">Rijeka</a></li>
+                            <li><a href="autobus.html#osijek">Osijek</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a href="karta.html" class="c-btn">Karta </a>
+                <button id="theme-toggle" class="c-btn">🌙</button>
+            </div>
+        </nav>
+        <div class="hero-text">
+            <h1>Interaktivna karta Hrvatske</h1>
+        </div>
+    </header>
+
+    <!-- GLAVNI SADRŽAJ -->
+    <main class="container map-section">
+        <div class="lp-container">
+            <p class="t-center">Upotrijebite filtre ispod kako biste pronašli smještajne objekte na mapi.</p>
+
+            <div class="filters-container m-top-40">
+                <select id="vrsta-smjestaja" class="filter-select">
+                    <option value="lodging">Sve vrste smještaja</option>
+                    <option value="hotel">Hoteli</option>
+                    <option value="campground">Kampovi</option>
+                </select>
+
+                <select id="grad-select" class="filter-select">
+                    <option value="">Odaberi grad</option>
+                    <option value="Zagreb">Zagreb</option>
+                    <option value="Split">Split</option>
+                    <option value="Dubrovnik">Dubrovnik</option>
+                    <option value="Zadar">Zadar</option>
+                    <option value="Pula">Pula</option>
+                    <option value="Rijeka">Rijeka</option>
+                    <option value="Osijek">Osijek</option>
+                </select>
+
+                <button class="c-btn" onclick="filtrirajKartu()">Traži smještaj </button>
+            </div>
+
+            <!-- Kontejner za Google kartu -->
+            <div id="map"></div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer-main-container">
+        <div class="container t-center">
+            <div class="footer-links-grid">
+                <a href="index.html" class="footer-link-btn">Početna</a>
+                <a href="letovi.html" class="footer-link-btn">Letovi</a>
+                <a href="smjestaj.html" class="footer-link-btn">Smještaj</a>
+                <a href="prognoza.html" class="footer-link-btn">Prognoza</a>
+                <a href="autobus.html" class="footer-link-btn">Autobus</a>
+                <a href="karta.html" class="footer-link-btn">Karta</a>
+            </div>
+            <p class="m-top-40" style="color: white; opacity: 0.8;">&copy; 2026 CroFly - Bez stresa do smještaja</p>
+        </div>
+    </footer>
+
+    <!-- SKRIPTE -->
+    <script src="main.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=API_KLJUČ_ĆEMO_TU_STAVITI&libraries=places&callback=initMap" async defer></script>
+</body>
+</html>

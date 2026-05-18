@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <title>CroFly - Autobusni prijevoz i transferi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Putanja prilagođena tvojoj strukturi gdje su datoteke u istoj mapi -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <!-- HERO HEADER KONTEJNER -->
+    <header class="hero-header">
+        <nav class="container">
+            <div class="nav-box">
+                <a href="index.html" class="c-btn">Početna</a>
+
+                <!-- Letovi Dropdown -->
+                <div class="dropdown">
+                    <button class="c-btn">Letovi ✈</button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="letovi.html#zagreb">Zagreb</a></li>
+                            <li><a href="letovi.html#split">Split</a></li>
+                            <li><a href="letovi.html#dubrovnik">Dubrovnik</a></li>
+                            <li><a href="letovi.html#zadar">Zadar</a></li>
+                            <li><a href="letovi.html#pula">Pula</a></li>
+                            <li><a href="letovi.html#rijeka">Rijeka</a></li>
+                            <li><a href="letovi.html#osijek">Osijek</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Smještaj Dropdown -->
+                <div class="dropdown">
+                    <button class="c-btn">Smještaj </button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="smjestaj.html#zagreb">Zagreb</a></li>
+                            <li><a href="smjestaj.html#split">Split</a></li>
+                            <li><a href="smjestaj.html#dubrovnik">Dubrovnik</a></li>
+                            <li><a href="smjestaj.html#zadar">Zadar</a></li>
+                            <li><a href="smjestaj.html#pula">Pula</a></li>
+                            <li><a href="smjestaj.html#rijeka">Rijeka</a></li>
+                            <li><a href="smjestaj.html#osijek">Osijek</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Prognoza Dropdown -->
+                <div class="dropdown">
+                    <button class="c-btn">Prognoza </button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="prognoza.html#zagreb">Zagreb</a></li>
+                            <li><a href="prognoza.html#split">Split</a></li>
+                            <li><a href="prognoza.html#dubrovnik">Dubrovnik</a></li>
+                            <li><a href="prognoza.html#zadar">Zadar</a></li>
+                            <li><a href="prognoza.html#pula">Pula</a></li>
+                            <li><a href="prognoza.html#rijeka">Rijeka</a></li>
+                            <li><a href="prognoza.html#osijek">Osijek</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Autobus Dropdown -->
+                <div class="dropdown">
+                    <button class="c-btn">Autobus </button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#zagreb">Zagreb</a></li>
+                            <li><a href="#split">Split</a></li>
+                            <li><a href="#dubrovnik">Dubrovnik</a></li>
+                            <li><a href="#zadar">Zadar</a></li>
+                            <li><a href="#pula">Pula</a></li>
+                            <li><a href="#rijeka">Rijeka</a></li>
+                            <li><a href="#osijek">Osijek</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a href="karta.html" class="c-btn">Karta </a>
+                <button id="theme-toggle" class="c-btn">🌙</button>
+            </div>
+        </nav>
+        <div class="hero-text">
+            <h1>Autobusni prijevoz i transferi</h1>
+        </div>
+    </header>
+
+    <main class="main container">
+        <section class="section">
+            <p class="t-center">Pronađite informacije o transferima s aerodroma i lokalnim prijevoznicima u najvećim hrvatskim gradovima.</p>
+
+            <!-- ZAGREB (Slika lijevo, Tekst desno) -->
+            <div id="zagreb" class="lp-container">
+                <div class="feature-row">
+                    <div class="feature-image-box">
+                        <img src="slike/zagrebprijevoz.jpg" alt="Zagreb Prijevoz" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Zagreb - ZET</h2>
+                        <p>Zagrebački električni tramvaj (ZET) glavni je prijevoznik u glavnom gradu. Osim opsežne mreže tramvaja i autobusa, ZET upravlja i uspinjačom te žičarom Sljeme. Transfer od zračne luke do centra osigurava Pleso Prijevoz.</p>
+                        <div id="zagreb-bus-info" class = "api-podaci">
+                            <p>Učitavanje prijevoza...</p>
+                        </div>
+                        <a href="https://www.zet.hr" target="_blank" class="c-btn m-top-40">Vozni red </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SPLIT (Tekst lijevo, Slika desno - REVERSE) -->
+            <div id="split" class="lp-container">
+                <div class="feature-row reverse">
+                    <div class="feature-image-box">
+                        <img src="slike/splitprijevoz.jpg" alt="Split Prijevoz" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Split - Promet Split</h2>
+                        <p>Promet Split povezuje sve dijelove grada te širu okolicu uključujući Trogir i Omiš. Iz zračne luke do splitskog kolodvora možete doći direktnim shuttle busom ili lokalnom linijom broj 37.</p>
+                        <div id="split-bus-info" class = "api-podaci">
+                            <p>Učitavanje prijevoza...</p>
+                        </div>
+                        <a href="https://www.promet-split.hr" target="_blank" class="c-btn m-top-40">Vozni red </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DUBROVNIK (Slika lijevo, Tekst desno) -->
+            <div id="dubrovnik" class="lp-container">
+                <div class="feature-row">
+                    <div class="feature-image-box">
+                        <img src="slike/dubrovnikprijevoz.jpg" alt="Dubrovnik Prijevoz" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Dubrovnik - Libertas</h2>
+                        <p>Libertas Dubrovnik osigurava moderan autobusni prijevoz unutar zidina i okolnih naselja. Transferi od zračne luke Čilipi do Starog grada (Pile) usklađeni su s dolascima zrakoplova.</p>
+                        <div id="dubrovnik-bus-info" class = "api-podaci">
+                            <p>Učitavanje prijevoza...</p>
+                        </div>                        
+                        <a href="https://www.libertasdubrovnik.hr" target="_blank" class="c-btn m-top-40">Vozni red </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ZADAR (Tekst lijevo, Slika desno - REVERSE) -->
+            <div id="zadar" class="lp-container">
+                <div class="feature-row reverse">
+                    <div class="feature-image-box">
+                        <img src="slike/zadarprijevoz.jpg" alt="Zadar Prijevoz" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Zadar - Liburnija</h2>
+                        <p>Liburnija Zadar održava gradske i prigradske linije. Autobusni kolodvor u Zadru ključno je čvorište, a transferi do zračne luke Zemunik polaze s glavnog kolodvora i poluotoka.</p>
+                        <div id="zadar-bus-info" class = "api-podaci">
+                            <p>Učitavanje prijevoza...</p>
+                        </div>
+                        <a href="https://liburnija-zadar.hr" target="_blank" class="c-btn m-top-40">Vozni red </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PULA (Slika lijevo, Tekst desno) -->
+            <div id="pula" class="lp-container">
+                <div class="feature-row">
+                    <div class="feature-image-box">
+                        <img src="slike/pulaprijevoz.jpg" alt="Pula Prijevoz" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Pula - Pulapromet</h2>
+                        <p>Pulapromet povezuje centar Pule s turističkim naseljima poput Verudele i Pješčane Uvale. Shuttle bus povezuje zračnu luku Pula s glavnim autobusnim kolodvorom u centru grada.</p>
+                        <div id="pula-bus-info" class = "api-podaci">
+                            <p>Učitavanje prijevoza...</p>
+                        </div>
+                        <a href="https://www.pulapromet.hr" target="_blank" class="c-btn m-top-40">Vozni red </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIJEKA (Tekst lijevo, Slika desno - REVERSE) -->
+            <div id="rijeka" class="lp-container">
+                <div class="feature-row reverse">
+                    <div class="feature-image-box">
+                        <img src="slike/rijekaprijevoz.jpg" alt="Rijeka Prijevoz" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Rijeka - Autotrolej</h2>
+                        <p>Autotrolej Rijeka opslužuje grad Rijeku i okolicu (Opatija, Kastav). Zračna luka Rijeka nalazi se na otoku Krku, a transferi su organizirani u skladu s redom letenja.</p>
+                        <div id="rijeka-bus-info" class = "api-podaci">
+                            <p>Učitavanje prijevoza...</p>
+                        </div>
+                        <a href="https://www.autotrolej.hr" target="_blank" class="c-btn m-top-40">Vozni red </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OSIJEK (Slika lijevo, Tekst desno) -->
+            <div id="osijek" class="lp-container">
+                <div class="feature-row">
+                    <div class="feature-image-box">
+                        <img src="slike/osijekprijevoz.jpg" alt="Osijek Prijevoz" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Osijek - GPP</h2>
+                        <p>GPP Osijek upravlja tramvajskim i autobusnim prometom u gradu na Dravi. Za transfere do zračne luke Klisa preporučuje se provjera polazaka shuttle servisa ili taxi službe.</p>
+                        <div id="osijek-bus-info" class = "api-podaci">
+                            <p>Učitavanje prijevoza...</p>
+                        </div>
+                        <a href="https://web.gpp-osijek.com" target="_blank" class="c-btn m-top-40">Vozni red </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- FOOTER KONTEJNER (Tamno plavi, odvojen) -->
+    <footer class="footer-main-container">
+        <div class="container t-center">
+            <div class="footer-links-grid">
+                <a href="index.html" class="footer-link-btn">Početna</a>
+                <a href="letovi.html" class="footer-link-btn">Letovi</a>
+                <a href="smjestaj.html" class="footer-link-btn">Smještaj</a>
+                <a href="prognoza.html" class="footer-link-btn">Prognoza</a>
+                <a href="autobus.html" class="footer-link-btn">Autobus</a>
+                <a href="karta.html" class="footer-link-btn">Karta</a>
+            </div>
+            <p class="m-top-40" style="color: white; opacity: 0.8;">&copy; 2026 CroFly - Vaš partner za transport.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

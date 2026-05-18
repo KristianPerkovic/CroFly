@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <title>CroFly - Red Letenja i Informacije</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <!-- HERO HEADER KONTEJNER -->
+    <header class="hero-header">
+        <nav class="container">
+            <div class="nav-box">
+                <a href="index.html" class="c-btn">Početna</a>
+
+                <!-- Letovi Dropdown (Sidrišta) -->
+                <div class="dropdown">
+                    <button class="c-btn">Letovi </button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#zagreb">Zagreb</a></li>
+                            <li><a href="#split">Split</a></li>
+                            <li><a href="#dubrovnik">Dubrovnik</a></li>
+                            <li><a href="#zadar">Zadar</a></li>
+                            <li><a href="#pula">Pula</a></li>
+                            <li><a href="#rijeka">Rijeka</a></li>
+                            <li><a href="#osijek">Osijek</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Smještaj Dropdown -->
+                <div class="dropdown">
+                    <button class="c-btn">Smještaj </button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="smjestaj.html#zagreb">Zagreb</a></li>
+                            <li><a href="smjestaj.html#split">Split</a></li>
+                            <li><a href="smjestaj.html#dubrovnik">Dubrovnik</a></li>
+                            <li><a href="smjestaj.html#zadar">Zadar</a></li>
+                            <li><a href="smjestaj.html#pula">Pula</a></li>
+                            <li><a href="smjestaj.html#rijeka">Rijeka</a></li>
+                            <li><a href="smjestaj.html#osijek">Osijek</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Prognoza Dropdown -->
+                <div class="dropdown">
+                    <button class="c-btn">Prognoza ☁</button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="prognoza.html#zagreb">Zagreb</a></li>
+                            <li><a href="prognoza.html#split">Split</a></li>
+                            <li><a href="prognoza.html#dubrovnik">Dubrovnik</a></li>
+                            <li><a href="prognoza.html#zadar">Zadar</a></li>
+                            <li><a href="prognoza.html#pula">Pula</a></li>
+                            <li><a href="prognoza.html#rijeka">Rijeka</a></li>
+                            <li><a href="prognoza.html#osijek">Osijek</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Autobus Dropdown -->
+                <div class="dropdown">
+                    <button class="c-btn">Autobus</button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="autobus.html#zagreb">Zagreb</a></li>
+                            <li><a href="autobus.html#split">Split</a></li>
+                            <li><a href="autobus.html#dubrovnik">Dubrovnik</a></li>
+                            <li><a href="autobus.html#zadar">Zadar</a></li>
+                            <li><a href="autobus.html#pula">Pula</a></li>
+                            <li><a href="autobus.html#rijeka">Rijeka</a></li>
+                            <li><a href="autobus.html#osijek">Osijek</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a href="karta.html" class="c-btn">Karta </a>
+                <button id="theme-toggle" class="c-btn">🌙</button>
+            </div>
+        </nav>
+        <div class="hero-text">
+            <h1>Informacije o letovima</h1>
+        </div>
+    </header>
+
+    <main class="main container">
+        <section class="section">
+            <p class="t-center">Pratite aktualne dolaske i odlaske hrvatskih zračnih luka u stvarnom vremenu te statističke podatke.</p>
+
+            <!-- ZAGREB -->
+            <div id="zagreb" class="lp-container">
+                <div class="feature-row">
+                    <div class="feature-image-box">
+                        <img src="slike/zagrebletovi.jpg" alt="Zagreb Airport" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Zagreb (ZAG) - Franjo Tuđman</h2>
+                            <div id="zagreb-raspored" class = "api-podaci">
+                                <p>Učitavanje letova...</p>
+                            </div>
+                        <a href="https://www.zagreb-airport.hr/" target="_blank" class="c-btn m-top-40">Službena stranica </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SPLIT (REVERSE) -->
+            <div id="split" class="lp-container">
+                <div class="feature-row reverse">
+                    <div class="feature-image-box">
+                        <img src="slike/splitletovi.jpg" alt="Split Airport" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Split (SPU) - Sveti Jeronim</h2>
+                            <div id="split-raspored" class = "api-podaci">
+                                <p>Učitavanje letova...</p>
+                            </div>
+                        <a href="https://www.split-airport.hr/hr/" target="_blank" class="c-btn m-top-40">Službena stranica </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DUBROVNIK -->
+            <div id="dubrovnik" class="lp-container">
+                <div class="feature-row">
+                    <div class="feature-image-box">
+                        <img src="slike/dubrovnikletovi.jpg" alt="Dubrovnik Airport" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Dubrovnik (DBV) - Ruđer Bošković</h2>
+                            <div id="dubrovnik-raspored" class = "api-podaci">
+                                <p>Učitavanje letova...</p>
+                            </div>
+                        <a href="https://www.dbv.hr/" target="_blank" class="c-btn m-top-40">Službena stranica </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ZADAR (REVERSE) -->
+            <div id="zadar" class="lp-container">
+                <div class="feature-row reverse">
+                    <div class="feature-image-box">
+                        <img src="slike/zadarletovi.jpg" alt="Zadar Airport" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Zadar (ZAD)</h2>
+                            <div id="zadar-raspored" class = "api-podaci">
+                                <p>Učitavanje letova...</p>
+                            </div>
+                        <a href="https://zadar-airport.hr/" target="_blank" class="c-btn m-top-40">Službena stranica </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PULA -->
+            <div id="pula" class="lp-container">
+                <div class="feature-row">
+                    <div class="feature-image-box">
+                        <img src="slike/pulaletovi.jpg" alt="Pula Airport" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Pula (PUY)</h2>
+                            <div id="pula-raspored" class = "api-podaci">
+                                <p>Učitavanje letova...</p>
+                            </div>
+                        <a href="https://airport-pula.hr/" target="_blank" class="c-btn m-top-40">Službena stranica </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIJEKA (REVERSE) -->
+            <div id="rijeka" class="lp-container">
+                <div class="feature-row reverse">
+                    <div class="feature-image-box">
+                        <img src="slike/rijekaletovi.jpg" alt="Rijeka Airport" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Rijeka (RJK)</h2>
+                            <div id="rijeka-raspored" class = "api-podaci">
+                                <p>Učitavanje letova...</p>
+                            </div>
+                        <a href="https://www.rijeka-airport.hr/hr/zracna-luka-rijeka" target="_blank" class="c-btn m-top-40">Službena stranica ✈</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OSIJEK -->
+            <div id="osijek" class="lp-container">
+                <div class="feature-row">
+                    <div class="feature-image-box">
+                        <img src="slike/osijekletovi.jpg" alt="Osijek Airport" class="feature-img">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Osijek (OSI)</h2>
+                            <div id="osijek-raspored" class = "api-podaci">
+                                <p>Učitavanje letova...</p>
+                            </div>
+                        <a href="https://osijek-airport.hr/" target="_blank" class="c-btn m-top-40">Službena stranica </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- FOOTER KONTEJNER -->
+    <footer class="footer-main-container">
+        <div class="container t-center">
+            <div class="footer-links-grid">
+                <a href="index.html" class="footer-link-btn">Početna</a>
+                <a href="letovi.html" class="footer-link-btn">Letovi</a>
+                <a href="smjestaj.html" class="footer-link-btn">Smještaj</a>
+                <a href="prognoza.html" class="footer-link-btn">Prognoza</a>
+                <a href="autobus.html" class="footer-link-btn">Autobus</a>
+                <a href="karta.html" class="footer-link-btn">Karta</a>
+            </div>
+            <p class="m-top-40" style="color: white; opacity: 0.8;">&copy; 2026 CroFly - Razvijeno prema standardima struke.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
