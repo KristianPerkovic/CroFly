@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, send_from_directory
 import requests
-from apiprijevoz import dohvati_sve_o_prijevozu
+from apiprijevoz import dohvati_javni_prijevoz
 
 app = Flask(__name__)
 
@@ -46,7 +46,7 @@ def custom_static(filename):
     return send_from_directory('.', filename)
 @app.route('/api/prijevoz/<grad>')
 def api_prijevoz(grad):
-    podaci = dohvati_sve_o_prijevozu(grad)
+    podaci = dohvati_javni_prijevoz(grad)
     return jsonify(podaci)
 if __name__ == '__main__':
     app.run(debug=True)

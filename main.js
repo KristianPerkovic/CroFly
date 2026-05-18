@@ -253,34 +253,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 /* ==========================================================================
-    6. LOGIKA ZA AUTOBUSE
+    6. LOGIKA ZA JAVASCRIPT API PRIJEVOZ (autobus.html)
     ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
+    // Popis svih gradova koji odgovaraju ID-jevima u tvom HTML-u
     const gradovi = ['zagreb', 'split', 'dubrovnik', 'zadar', 'pula', 'rijeka', 'osijek'];
 
-    // Pokrećemo samo ako smo na stranici autobus.html
-    if (window.location.pathname.includes('autobus.html')) {
-        
-        gradovi.forEach(async (grad) => {
+    async function dohvatiPrijevoz() {
+        for (const grad of gradovi) {
+            // Tražimo div s ID-jem, npr. "zagreb-bus-info"
             const kontejner = document.getElementById(grad + "-bus-info");
-            if (!kontejner) return;
-
-            try {
-                // Pozivamo tvoj Python API (koji sada preko POI-ja traži naziv linije)
-                const response = await fetch(`http://127.0.0.1:5000/api/prijevoz/${grad}`);
-                const data = await response.json();
-
-                // Ispisujemo točno ono što je API vratio pod ključem "linija"
-                kontejner.innerHTML = `
-                    <div style="border-left: 5px solid #28a745; background: #f4fdf4; padding: 15px; border-radius: 5px;">
-                        <h4 style="margin: 0 0 10px 0; color: #28a745;">🚐 Informacije s terena:</h4>
-                        <p style="font-size: 1.2em; font-weight: bold; margin: 0;">${data.linija}</p>
-                        <p style="margin: 5px 0 0; font-size: 0.9em; color: #666;">Udaljenost do centra: ${data.udaljenost}</p>
-                    </div>
-                `;
-            } catch (err) {
-                kontejner.innerHTML = "<p>Greška pri komunikaciji s API-jem.</p>";
+            
+            // Ako element postoji na stranici (npr. na autobus.html), pokrećemo API poziv
+            if (kontejner) {
+                try {
+                    // Gađamo tvoj lokalni Flask server
+                    const res = await fetch(`http://127.0.0.1:5000/api/prijevoz/${grad}`);
+                    const data = await res.json();
+                    
+                    // Ispisujemo Google Maps podatke u HTML s malo CSS stila
+                    kontejner.innerHTML = `
+                        <div style="background: #f8f9fa; padding: 12px; border-left: 5px solid #4285F4; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                            <p style="margin: 0; font-size: 1.1em; color: #2c3e50;">🚌 <strong>${data.linija}</strong></p>
+                            <p style="margin: 6px 0 0; font-size: 0.9em; color: #555;">⏱️ Vrijeme do centra: <strong>${data.vrijeme}</strong></p>
+                        </div>
+                    `;
+                } catch (err) {
+                    // U slučaju da je server ugašen ili je greška u mreži
+                    console.error("Greška kod dohvata za grad " + grad + ":", err);
+                    kontejner.innerHTML = `
+                        <div style="background: #fff3f3; padding: 10px; border-left: 5px solid #dc3545; border-radius: 4px;">
+                            <p style="margin: 0; color: #dc3545; font-weight: bold;">⚠️ Podaci trenutno nedostupni.</p>
+                        </div>
+                    `;
+                }
             }
-        });
+        }
     }
+
+    // Pokrećemo funkciju
+    dohvatiPrijevoz();
 });

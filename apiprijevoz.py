@@ -1,59 +1,73 @@
+from flask import Flask, jsonify
+from flask_cors import CORS
 import requests
 
-# Tvoj ORS ključ za udaljenosti
-ORS_KEY = "eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6Ijk5ZTk2NGVmODNiZjRlNWJhMDhmNTkyNmM1MTc5MTMxIiwiaCI6Im11cm11cjY0In0"
+app = Flask(__name__)
+CORS(app)  # Otvara vrata tvom JavaScriptu
 
-def dohvati_sve_o_prijevozu(grad):
-    # Definiramo koordinate [lat, lon] za Start (Aerodrom) i End (Centar grada)
+# API ključ za Google Maps Directions API
+GOOGLE_KEY = "AIzaSyAs-n8ho4ea_b-UzQUTztQT0CMxYBYBBJc"
+
+def dohvati_javni_prijevoz(grad):
     lokacije = {
-        'zagreb': {"start": [45.74, 16.06], "end": [45.81, 15.97]},
-        'split': {"start": [43.53, 16.29], "end": [43.50, 16.44]},
-        'rijeka': {"start": [45.21, 14.57], "end": [45.32, 14.44]},
-        'pula': {"start": [44.89, 13.92], "end": [44.86, 13.84]}
+        'zagreb': {"start": "Zračna luka Franjo Tuđman", "end": "Trg bana Jelačića, Zagreb"},
+        'split': {"start": "Zračna luka Split", "end": "Riva, Split"},
+        'rijeka': {"start": "Zračna luka Rijeka", "end": "Korzo, Rijeka"},
+        'zadar': {"start": "Zračna luka Zadar", "end": "Poluotok, Zadar"},
+        'dubrovnik': {"start": "Zračna luka Dubrovnik", "end": "Stradun, Dubrovnik"},
+        'pula': {"start": "Zračna luka Pula", "end": "Arena, Pula"},
+        'osijek': {"start": "Zračna luka Osijek", "end": "Tvrđa, Osijek"}
     }
 
     info = lokacije.get(grad.lower())
-    if not info: return {"linija": "Nepoznato", "udaljenost": "N/A"}
+    if not info: 
+        return {"linija": "Grad nije definiran", "vrijeme": "N/A"}
 
-    # --- 1. DOHVAT LINIJE (Overpass API) ---
-    overpass_url = "http://overpass-api.de/api/interpreter"
-    query = f"""
-    [out:json];
-    (node(around:1000, {info['start'][0]}, {info['start'][1]})["route"="bus"];
-     way(around:1000, {info['start'][0]}, {info['start'][1]})["route"="bus"];
-     relation(around:1000, {info['start'][0]}, {info['start'][1]})["route"="bus"];);
-    out tags;
-    """
-    
-    linija = "Shuttle Bus"
-    try:
-        r_ov = requests.post(overpass_url, data={'data': query})
-        res = r_ov.json()
-        if 'elements' in res:
-            found = [el['tags'].get('ref') or el['tags'].get('name') for el in res['elements'] if 'tags' in el]
-            if found: linija = found[0]
-    except: pass
-
-    # --- 2. DOHVAT RUTE (OpenRouteService) ---
-    # PAZI: ORS koristi [lon, lat] redoslijed!
-    dir_url = f"https://api.openrouteservice.org/v2/directions/driving-car"
+    url = "https://maps.googleapis.com/maps/api/directions/json"
     params = {
-        "api_key": ORS_KEY,
-        "start": f"{info['start'][1]},{info['start'][0]}",
-        "end": f"{info['end'][1]},{info['end'][0]}"
+        "origin": info['start'],
+        "destination": info['end'],
+        "mode": "transit", # Ovo prisiljava Google da traži BUSEVE i TRAMVAJE
+        "key": GOOGLE_KEY
     }
-    
-    try:
-        r_dir = requests.get(dir_url, params=params)
-        dist_data = r_dir.json()
-        summary = dist_data['features'][0]['properties']['summary']
-        udaljenost = f"{round(summary['distance'] / 1000, 1)} km"
-        trajanje = f"{round(summary['duration'] / 60)} min"
-    except:
-        udaljenost, trajanje = "N/A", "N/A"
 
-    return {
-        "linija": f"Linija {linija}",
-        "putanja": f"Do centra: {udaljenost}",
-        "vrijeme": f"Vrijeme: {trajanje}"
-    }
+    try:
+        r = requests.get(url, params=params, timeout=5)
+        data = r.json()
+        
+        # Ako je Google uspio pronaći rutu
+        if data.get("status") == "OK":
+            koraci = data['routes'][0]['legs'][0]['steps']
+            
+            # Tražimo dio rute koji je javni prijevoz (preskačemo hodanje do stanice)
+            transit_korak = next((k for k in koraci if k['travel_mode'] == 'TRANSIT'), None)
+            
+            if transit_korak:
+                linija_info = transit_korak['transit_details']['line']
+                # Neki prijevoznici imaju 'short_name' (ZET 290), a neki samo 'name' (Pleso Prijevoz)
+                naziv_linije = linija_info.get('short_name') or linija_info.get('name') or "Shuttle Bus"
+                
+                # Izvlačimo ukupno vrijeme putovanja
+                vrijeme = data['routes'][0]['legs'][0]['duration']['text']
+                vrijeme = vrijeme.replace("mins", "min").replace("hours", "h") # Mali prijevod na hrvatski
+                
+                return {"linija": f"Linija {naziv_linije}", "vrijeme": vrijeme}
+            else:
+                return {"linija": "Samo pješačka ruta", "vrijeme": "N/A"}
+        else:
+            print(f"Google kaže: {data.get('status')} za {grad}")
+            return {"linija": "Ruta trenutno nije dostupna", "vrijeme": "N/A"}
+
+    except Exception as e:
+        print("Greška:", e)
+        return {"linija": "Servis nedostupan", "vrijeme": "N/A"}
+
+# Ruta koja sluša tvoj JavaScript
+@app.route('/api/prijevoz/<grad>')
+def get_prijevoz(grad):
+    rezultat = dohvati_javni_prijevoz(grad)
+    return jsonify(rezultat)
+
+if __name__ == "__main__":
+    print("API Prijevoz je pokrenut na http://localhost:5000")
+    app.run(debug=True)
