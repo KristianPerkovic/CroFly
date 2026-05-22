@@ -1,8 +1,11 @@
 from flask import Flask, jsonify, send_from_directory
+from flask_cors import CORS
 import requests
 from apiprijevoz import dohvati_javni_prijevoz
+from apivrijeme import dohvati_vrijeme
 
 app = Flask(__name__)
+CORS(app)  # Dopušta pregledniku da poziva ovaj Flask API s lokalne HTML stranice
 
 API_KEY = "62a8d06a-c03e-4228-ba9f-eeb81f44f318"
 @app.route('/')
@@ -48,10 +51,12 @@ def custom_static(filename):
 def api_prijevoz(grad):
     podaci = dohvati_javni_prijevoz(grad)
     return jsonify(podaci)
-if __name__ == '__main__':
-    app.run(debug=True)
-@app.route("/api/prognoza/<grad>")
+
+@app.route('/api/prognoza/<grad>')
 def api_prognoza(grad):
-    from apivrijeme import dohvati_vrijeme
-    podaci = dohvati_vrijeme(grad)
-    return jsonify(podaci)
+    # Vraća vremenske podatke za traženi grad u JSON obliku
+    return jsonify(dohvati_vrijeme(grad))
+
+if __name__ == '__main__':
+    # Aplikacija se pokreće na http://127.0.0.1:5000
+    app.run(debug=True, port=5000)

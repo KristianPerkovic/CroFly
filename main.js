@@ -89,15 +89,26 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ==========================================================================
    3. DODATNE FUNKCIJE (dohvaćanje prognoze)
    ========================================================================== */
-function dohvatiPrognozu(grad, elementId) {
-    const prikaz = document.getElementById(elementId);
-    if (prikaz) {
-        prikaz.innerHTML = `<p>Učitavanje prognoze za ${grad}...</p>`;
-        
-        // Simulacija API poziva (kasnije ćeš ovdje staviti pravi fetch)
-        setTimeout(() => {
-            prikaz.innerHTML = `<p>Trenutno: <strong>22°C, Sunčano</strong></p>`;
-        }, 1000);
+async function dohvatiPrognozu(grad, elementId) {
+    const targetId = elementId || `${grad.toLowerCase()}-prognoza`;
+    const prikaz = document.getElementById(targetId);
+    if (!prikaz) return;
+
+    prikaz.innerHTML = `<p>Učitavanje prognoze za ${grad}...</p>`;
+
+    try {
+        // Novo: dohvaćamo pravi API umjesto samo simulacije
+        const response = await fetch(`http://127.0.0.1:5000/api/prognoza/${grad.toLowerCase()}`);
+        if (!response.ok) throw new Error('API response not OK');
+
+        const data = await response.json();
+        prikaz.innerHTML = `
+            <p>Temperatura: <strong>${data.temperatura}</strong></p>
+            <p>Vjetar: <strong>${data.vjetar}</strong></p>
+        `;
+    } catch (error) {
+        prikaz.innerHTML = `<p style="color: red;">Greška pri dohvaćanju prognoze.</p>`;
+        console.error('Dohvat prognoze nije uspio:', error);
     }
 }
 
@@ -256,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
     6. LOGIKA ZA JAVASCRIPT API PRIJEVOZ (autobus.html)
     ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
-    // Popis svih gradova koji odgovaraju ID-jevima u tvom HTML-u
+    // Popis svih gradova koji odgovaraju ID-jevima u HTML-u
     const gradovi = ['zagreb', 'split', 'dubrovnik', 'zadar', 'pula', 'rijeka', 'osijek'];
 
     async function dohvatiPrijevoz() {
@@ -293,4 +304,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Pokrećemo funkciju
     dohvatiPrijevoz();
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const gradovi = ['Zagreb', 'Split', 'Dubrovnik', 'Zadar', 'Pula', 'Rijeka', 'Osijek'];
+    
+    gradovi.forEach(grad => {
+        const elementId = grad.toLowerCase() + '-prognoza';
+        
+        // Pozivamo tvoju postojeću funkciju za dohvat
+        dohvatiPrognozu(grad, elementId);
+    });
 });

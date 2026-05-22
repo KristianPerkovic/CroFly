@@ -89,7 +89,7 @@
 
     <main class="main container">
         <section class="section">
-            <p class="t-center">Saznajte trenutne vremenske uvjete i prognozu za ključne hrvatske destinacije prije vašeg putovanja.</p>
+            <p class="t-center">Saznajte trenutne vremenske uvjete za ključne hrvatske destinacije prije vašeg putovanja.</p>
 
             <!-- ZAGREB -->
             <div id="zagreb" class="lp-container">
@@ -99,12 +99,10 @@
                     </div>
                     <div class="feature-text">
                         <h2>Zagreb</h2>
-                        <table class="weather-table">
-                            <tr><td>Temp:</td><td id="zagreb-temp">--°C</td></tr>
-                            <tr><td>Vjetar:</td><td id="zagreb-wind">-- km/h</td></tr>
-                            <tr><td>Stanje:</td><td id="zagreb-cond">Učitavanje...</td></tr>
-                        </table>
-                        <button class="c-btn m-top-40" onclick="dohvatiPrognozu('Zagreb')">Osvježi</button>
+                        <div id="zagreb-prognoza" class="api-podaci">
+                        </div>
+                            <button class="c-btn m-top-40" onclick="dohvatiPrognozu('Zagreb')">Osvježi</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -117,11 +115,8 @@
                     </div>
                     <div class="feature-text">
                         <h2>Split</h2>
-                        <table class="weather-table">
-                            <tr><td>Temp:</td><td id="split-temp">--°C</td></tr>
-                            <tr><td>Vjetar:</td><td id="split-wind">-- km/h</td></tr>
-                            <tr><td>Stanje:</td><td id="split-cond">Učitavanje...</td></tr>
-                        </table>
+                        <div id="split-prognoza" class = "api-podaci">
+                        </div>
                         <button class="c-btn m-top-40" onclick="dohvatiPrognozu('Split')">Osvježi</button>
                     </div>
                 </div>
@@ -135,11 +130,8 @@
                     </div>
                     <div class="feature-text">
                         <h2>Dubrovnik</h2>
-                        <table class="weather-table">
-                            <tr><td>Temp:</td><td id="dubrovnik-temp">--°C</td></tr>
-                            <tr><td>Vjetar:</td><td id="dubrovnik-wind">-- km/h</td></tr>
-                            <tr><td>Stanje:</td><td id="dubrovnik-cond">Učitavanje...</td></tr>
-                        </table>
+                        <div id="dubrovnik-prognoza" class = "api-podaci">
+                        </div>
                         <button class="c-btn m-top-40" onclick="dohvatiPrognozu('Dubrovnik')">Osvježi</button>
                     </div>
                 </div>
@@ -153,11 +145,8 @@
                     </div>
                     <div class="feature-text">
                         <h2>Zadar</h2>
-                        <table class="weather-table">
-                            <tr><td>Temp:</td><td id="zadar-temp">--°C</td></tr>
-                            <tr><td>Vjetar:</td><td id="zadar-wind">-- km/h</td></tr>
-                            <tr><td>Stanje:</td><td id="zadar-cond">Učitavanje...</td></tr>
-                        </table>
+                        <div id="zadar-prognoza" class = "api-podaci">
+                        </div>
                         <button class="c-btn m-top-40" onclick="dohvatiPrognozu('Zadar')">Osvježi</button>
                     </div>
                 </div>
@@ -171,11 +160,8 @@
                     </div>
                     <div class="feature-text">
                         <h2>Pula</h2>
-                        <table class="weather-table">
-                            <tr><td>Temp:</td><td id="pula-temp">--°C</td></tr>
-                            <tr><td>Vjetar:</td><td id="pula-wind">-- km/h</td></tr>
-                            <tr><td>Stanje:</td><td id="pula-cond">Učitavanje...</td></tr>
-                        </table>
+                        <div id="pula-prognoza" class = "api-podaci">
+                        </div>
                         <button class="c-btn m-top-40" onclick="dohvatiPrognozu('Pula')">Osvježi</button>
                     </div>
                 </div>
@@ -189,11 +175,8 @@
                     </div>
                     <div class="feature-text">
                         <h2>Rijeka</h2>
-                        <table class="weather-table">
-                            <tr><td>Temp:</td><td id="rijeka-temp">--°C</td></tr>
-                            <tr><td>Vjetar:</td><td id="rijeka-wind">-- km/h</td></tr>
-                            <tr><td>Stanje:</td><td id="rijeka-cond">Učitavanje...</td></tr>
-                        </table>
+                        <div id="rijeka-prognoza" class = "api-podaci">
+                        </div>
                         <button class="c-btn m-top-40" onclick="dohvatiPrognozu('Rijeka')">Osvježi</button>
                     </div>
                 </div>
@@ -207,11 +190,8 @@
                     </div>
                     <div class="feature-text">
                         <h2>Osijek</h2>
-                        <table class="weather-table">
-                            <tr><td>Temp:</td><td id="osijek-temp">--°C</td></tr>
-                            <tr><td>Vjetar:</td><td id="osijek-wind">-- km/h</td></tr>
-                            <tr><td>Stanje:</td><td id="osijek-cond">Učitavanje...</td></tr>
-                        </table>
+                        <div id="osijek-prognoza" class = "api-podaci">
+                        </div>
                         <button class="c-btn m-top-40" onclick="dohvatiPrognozu('Osijek')">Osvježi</button>
                     </div>
                 </div>
