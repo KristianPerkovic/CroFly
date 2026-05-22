@@ -50,3 +50,8 @@ def api_prijevoz(grad):
     return jsonify(podaci)
 if __name__ == '__main__':
     app.run(debug=True)
+@app.route("/api/prognoza/<grad>")
+def api_prognoza(grad):
+    from apivrijeme import dohvati_vrijeme
+    podaci = dohvati_vrijeme(grad)
+    return jsonify(podaci)
