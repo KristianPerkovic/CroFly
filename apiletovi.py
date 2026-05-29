@@ -5,7 +5,7 @@ from apiprijevoz import dohvati_javni_prijevoz
 from apivrijeme import dohvati_vrijeme
 
 app = Flask(__name__)
-CORS(app)  # Dopušta pregledniku da poziva ovaj Flask API s lokalne HTML stranice
+CORS(app)  # Omogućava CORS za sve rute
 
 API_KEY = "62a8d06a-c03e-4228-ba9f-eeb81f44f318"
 @app.route('/')
@@ -58,5 +58,5 @@ def api_prognoza(grad):
     return jsonify(dohvati_vrijeme(grad))
 
 if __name__ == '__main__':
-    # Aplikacija se pokreće na http://127.0.0.1:5000
+    # Aplikacija se pokreće
     app.run(debug=True, port=5000)

@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gradovi.forEach(grad => {
         const elementId = grad.toLowerCase() + '-prognoza';
         
-        // Pozivamo tvoju postojeću funkciju za dohvat
+        // Pozivamo async funkciju za dohvat
         dohvatiPrognozu(grad, elementId);
     });
 });
